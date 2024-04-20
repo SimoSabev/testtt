@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Head from "next/head"; // Import Head component from next/head
 import "./globals.css";
-import { Parallax } from 'react-parallax';
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="shortcut icon" href="favicon.ico" /> {/* Add this line */}
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );

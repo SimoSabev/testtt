@@ -1,28 +1,41 @@
-import React from "react";
-import Image from "next/image";
-import char from "../../../public/assets/image-group.png-removebg-preview.png";
+"use client"
+import React, { useEffect, useRef } from "react";
+
 
 const Content = () => {
+  const backgroundRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const yPos = window.scrollY;
+      // Check if backgroundRef.current is not null before accessing it
+      if (backgroundRef.current) {
+        backgroundRef.current.style.backgroundPositionY = `${-yPos * 0.5}px`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className=" hero min-h-screen flex items-center pl-48 bg-[url('https://i.pinimg.com/564x/27/a6/02/27a6024cad4b65ae6b1ee17d45977bd7.jpg')] ">
-      <div>
-        <Image
-        className=" absolute right-24 bottom-16"
-          src={char}
-          width={600}
-          height={600}
-          alt="Picture of the author"
-        />
-      </div>
-      <div className=" hero-content text-start">
-        <div className="max-w-md flex flex-col">
-          <h1 className="text-6xl text-slate-300 font-bold">Hello there</h1>
-          <p className="py-6 text-slate-300">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <button className=" btn  btn-primary">Get Started</button>
+    <div
+      className="hero min-h-screen relative"
+      ref={backgroundRef}
+      style={{
+        backgroundImage:
+          "url(https://images.musement.com/cover/0002/04/varna-city-jpg_header-103259.jpeg)",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content text-center text-neutral-content">
+        <div className="">
+          <h1 className="text-8xl font-black">Varna Journey</h1>
         </div>
       </div>
     </div>

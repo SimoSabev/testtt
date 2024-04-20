@@ -1,24 +1,25 @@
-import type { Config } from "tailwindcss";
+// next.config.js
 
-const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+const withMT = require("@material-tailwind/react/utils/withMT");
+const daisyui = require("daisyui");
+
+module.exports = withMT({
+  // Your original Tailwind CSS configuration
+  // Ensure you're using the correct setup for Tailwind CSS
+  // This example assumes you're using JIT mode
+  mode: 'jit',
+  purge: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          'hero-pattern': "url('https://i.pinimg.com/564x/27/a6/02/27a6024cad4b65ae6b1ee17d45977bd7.jpg')",
-  
-
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
-  plugins: [require("daisyui")],
-};
-
-export default config;
+  plugins: [daisyui],
+});

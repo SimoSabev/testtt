@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: officecodepro-bold
+font link: https://github.com/nathco/Office-Code-Pro
+font author: Nathan Rutzky
+font author site: https://nath.co/
+Slogan Font: Aleo-Light.otf
+
+icon designer: Renee Ramsey-Passmore
+icon designer link: /Renee Ramsey-Passmore
+        
+{"bg-gradient-0":"#181B80","bg-gradient-1":"#181ED9","icon":"#ffffff","font":"#ffffff","slogan":"#ffffff"}
+      
